@@ -55,7 +55,6 @@
 
 //			if(!err) {
 //				data = dal.BASE_URL_DEV
-//				//data = dal.BASE_URL_TEST
 //				console.log("=========================" + data);
 //			} 
 			callback(err, data);

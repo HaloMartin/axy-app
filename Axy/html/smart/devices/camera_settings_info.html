@@ -166,10 +166,7 @@
 					plus.nativeUI.showWaiting();
 					this.getBaseInfo() 
 					.mergeMap(this.getwifi)
-					.subscribe(function(){
-						plus.nativeUI.closeWaiting();	
-					}, function(err) {
-						plus.nativeUI.closeWaiting();
+					.subscribe(plus.nativeUI.closeWaiting, function(err) {
 						mui.toast(err.message);
 					});
 					

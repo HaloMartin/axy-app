@@ -20,20 +20,21 @@
 			
 			.row {
 				margin: 0.346666rem 0.173333rem 0 0.173333rem;
-				display: flex;
+				display: flex; 
 				display: -webkit-flex;
 				justify-content: space-around;
 			}
 			
 			.row>div {
 				background: white;
-				width: 9rem;
-				height: 3.8rem;
+				width: 4.48rem;
+				height: 3.066666rem;
 				border-radius: 5px;
 				box-shadow: 0px 0px 6px #EFEFEF;
 				text-align: center;
-				line-height: 3.8rem;
+				line-height: 3.066666rem;
 			}
+			
 		</style>
 	</head>
 
@@ -45,12 +46,14 @@
 				<h1 class="mui-title">帮助与反馈</h1>
 			</header>
 
-			<div class="mui-content app-font-size-34 app-color-333333">
+			<div class="mui-content app-font-size-30 app-color-333333">
 				<div class="row">
-					<div class="item" @tap="onItem(0)">故障排查</div>
+					<div class="item">设备安装&绑定</div>
+					<div class="item">设备购买</div>
 				</div>
 				<div class="row">
-					<div class="item" @tap="onItem(1)">网络摄像机</div>
+					<div class="item">智能场景</div>
+					<div class="item">设备联动</div>
 				</div>
 			</div>
 
@@ -73,7 +76,7 @@
 				el: '#warpper',
 				data: function() {
 					return {
-						helpUrlList: ["hf_Troubleshooting","hf_camera"],
+						
 					};
 				},
 				mounted: function() {
@@ -81,9 +84,7 @@
 				},
 				plusReady: function() {},
 				methods: {
-					onItem: function(index) {
-						mui.openWindow(this.helpUrlList[index]+".html",this.helpUrlList[index]);
-					}
+					
 				}
 			});
 		</script>

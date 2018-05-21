@@ -145,12 +145,6 @@
 	device.shareList = function(callback) {
 		return ra("get", "/share/list", {}, callback);
 	};
-	
-	device.shareListByDevid = function(devid, callback){
-		return ra("get", "/share/list", {
-			devid: devid,
-		}, callback);
-	}
 
 	device.delShare = function(id, callback) {
 		return ra("post", "/share/delete/" + id, {}, callback);

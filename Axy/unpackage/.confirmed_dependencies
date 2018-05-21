@@ -79,8 +79,7 @@
       "image/main/mall.png",
       "image/main/person.png",
       "image/main/smart.png",
-      "image/main/home_active.png",
-      "js/app/app-mall.js"
+      "image/main/home_active.png"
     ]
   },
   "html/person/myself/business.html": {
@@ -230,8 +229,7 @@
       "html/smart/devices/dev_my_list.html",
       "html/smart/scenes/index2.html",
       "html/public/browser.html",
-      "html/common/login.html",
-      "html/smart/devices/dev_AX-801.html"
+      "html/common/login.html"
     ],
     "resources": []
   },
@@ -453,9 +451,7 @@
       "js/dal/system.js",
       "image/common/login_weibo.png",
       "image/common/login_wechat.png",
-      "image/common/login_qq.png",
-      "image/smart/devices/others/down.png",
-      "js/lib/better-scroll.min.js"
+      "image/common/login_qq.png"
     ]
   },
   "html/common/reset.html": {
@@ -673,32 +669,6 @@
   "html/person/about.html": {
     "refer": [
       "html/public/updateWindow.html"
-    ],
-    "resources": []
-  },
-  "html/person/devshare/share.html": {
-    "refer": [
-      "html/person/devshare/index.html"
-    ],
-    "resources": []
-  },
-  "html/smart/devices/dev_AX-801_helper.html": {
-    "refer": [
-      "html/smart/devices/dev_AX-801_alarm_clock.html"
-    ],
-    "resources": []
-  },
-  "html/smart/devices/dev_AX-801.html": {
-    "refer": [
-      "html/smart/devices/dev_AX-801_setting.html",
-      "html/smart/devices/dev_AX-801_helper.html"
-    ],
-    "resources": []
-  },
-  "html/smart/devices/dev_AX-801_setting.html": {
-    "refer": [
-      "html/smart/devices/dev_AX-801_log.html",
-      "html/public/alarmParam.html"
     ],
     "resources": []
   }
