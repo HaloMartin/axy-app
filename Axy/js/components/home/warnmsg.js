@@ -30,29 +30,28 @@ Vue && Vue.component('warn-msg', {
 				ob.next(data);
 			});
 		});
-		
-		
 
+		var listenUser$ = Rx.Observable.create(function(ob) {
+			_B.on('login_success', function() {
+				ob.next();
+			});
+			_B.on('home_reload', function() {
+				ob.next();
+			});
 
-		Rx.Observable.create(function(ob) {
-				_B.on('login_success', function() {
-					ob.next();
-				});
-				_B.on('home_reload', function() {
-					ob.next();
-				});
+			app.user.has() && ob.next();
+		});
 
-				app.user.has() && ob.next();
-			})
-			
+		pready$.mergeMapTo(listenUser$)
+
 			.merge(pready$.mergeMapTo(NotifyWarningMsg$).debounceTime(3e3))
-		
+
 			.mergeMap(function() {
 				return Rx.Observable.fromPromise(that.getMessageList())
 			})
 
 			.subscribe(function(data) {
-				
+
 				that.items = data;
 
 				if(data.length > 1) {
@@ -70,31 +69,30 @@ Vue && Vue.component('warn-msg', {
 			});
 
 	},
-	
 
 	methods: {
 		// 获取告警列表
-//		getMessageList: function() {
-//			return new Promise(function(resolve, reject) {
-//				dal.message.getAlarmList(1, "", "", function(err, data) {
-//
-//					if(err) {
-//						return reject(err);
-//					}
-//					if(!data || data.length === 0) {
-//						return;
-//					}
-//					resolve(data);
-//				});
-//			});
-//
-//		},
-		
-		getMessageList: function(){
-			return new Promise(function(resolve,reject){
+		//		getMessageList: function() {
+		//			return new Promise(function(resolve, reject) {
+		//				dal.message.getAlarmList(1, "", "", function(err, data) {
+		//
+		//					if(err) {
+		//						return reject(err);
+		//					}
+		//					if(!data || data.length === 0) {
+		//						return;
+		//					}
+		//					resolve(data);
+		//				});
+		//			});
+		//
+		//		},
+
+		getMessageList: function() {
+			return new Promise(function(resolve, reject) {
 				var username = app.user.get().account;
-				plug.H5NativeBridge.GetNoReadAlarmListAsyn(username,10,function(data){
-					if(!data || data.length == 0){
+				username && plug.H5NativeBridge.GetNoReadAlarmListAsyn(username, 10, function(data) {
+					if(!data || data.length == 0) {
 						return;
 					}
 					resolve(data);
